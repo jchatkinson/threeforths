@@ -1,4 +1,4 @@
-angular.module('threefourths', ['ionic', 'ngCordova', 'threefourths.controllers', 'threefourths.services'])
+angular.module('threefourths', ['ionic', 'ngCordova', 'threefourths.controllers', 'threefourths.services', 'angular-progress-arc'])
 
 .run(function ($ionicPlatform) {
     $ionicPlatform.ready(function () {
@@ -37,6 +37,17 @@ angular.module('threefourths', ['ionic', 'ngCordova', 'threefourths.controllers'
             'tab-dash': {
                 templateUrl: 'templates/tab-dash.html',
                 controller: 'DashCtrl'
+            }
+        }
+    })
+
+    // Each tab has its own nav history stack:
+    .state('tab.timer', {
+        url: '/timer',
+        views: {
+            'tab-timer': {
+                templateUrl: 'templates/tab-timer.html',
+                controller: 'TimerCtrl'
             }
         }
     })

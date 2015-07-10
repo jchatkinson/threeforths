@@ -2,6 +2,8 @@ angular.module('threefourths.controllers', [])
 
 .controller('DashCtrl', function ($scope) {})
 
+.controller('TimerCtrl', function ($scope) {})
+
 .controller('SettingsCtrl', function ($scope, $ionicPlatform, $cordovaDevice, $cordovaEmailComposer, $cordovaToast) {
     $scope.timeupSettings = [
         {
