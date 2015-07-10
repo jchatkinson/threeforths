@@ -1,0 +1,9 @@
+{
+    "jscodehints.detectedExclusions": [
+        "/home/jeremy/projects/threefourths/gulpfile.js",
+        "/home/jeremy/projects/threefourths/hooks/after_prepare/010_add_platform_class.js",
+        "/home/jeremy/projects/threefourths/www/js/controllers.js",
+        "/home/jeremy/projects/threefourths/www/lib/ionic/js/ionic-angular.min.js",
+        "/home/jeremy/projects/threefourths/www/lib/ionic/js/ionic.js"
+    ]
+}

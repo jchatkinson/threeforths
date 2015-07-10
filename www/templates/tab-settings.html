@@ -1,0 +1,33 @@
+<ion-view view-title="Settings">
+    <ion-content>
+        <ion-list>
+            <div class="item item-divider">When time's up:</div>
+            <ion-toggle ng-repeat="item in timeupSettings" ng-model="item.checked">
+                {{ item.text }}
+            </ion-toggle>
+
+            <div class="item item-divider">Behavior:</div>
+            <ion-toggle ng-repeat="item in miscSettings" ng-model="item.checked">
+                {{ item.text }}
+            </ion-toggle>
+
+            <div class="item item-divider"> Share the Love:
+            </div>
+            <a class="item item-icon-left" href="#" ng-click="sendEmail('social')"><i class="icon ion-ios-email"></i>Email
+            </a>
+            <a class="item item-icon-left" href="#"><i class="icon ion-social-facebook"></i>Facebook
+            </a>
+            <a class="item item-icon-left" href="#"><i class="icon ion-social-twitter"></i>Twitter
+            </a>
+
+            <div class="item item-divider"> Help: </div>
+            <a class="item"> FAQ</a>
+            <a class="item" ng-click="sendEmail('help')"> Contact</a>
+            <a class="item"> Fine Print</a>
+            <a class="item"> Cordova Version: {{cordova}}</a>
+            <a class="item"> Device: {{model}}</a>
+            <a class="item"> Platform: {{platform}}</a>
+            <a class="item" ng-click="showToast('The version is {{ version }}','short','bottom')"> Version: {{version}}</a>
+        </ion-list>
+    </ion-content>
+</ion-view>
