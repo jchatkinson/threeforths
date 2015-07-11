@@ -1,8 +1,27 @@
-angular.module('threefourths.controllers', [])
+angular.module('threefourths.controllers', ['angular-progress-arc'])
 
-.controller('DashCtrl', function ($scope) {})
+.controller('DashCtrl', function ($scope) {
 
-.controller('TimerCtrl', function ($scope) {})
+})
+
+.controller('TimerCtrl', function ($scope, $interval, $timeout) {
+    $scope.timersize = "300"; //todo - adjust based on screen size, user optn
+    //    $scope.Ttotal = 60;
+    //    $scope.Tcurrent = 10;
+
+    $scope.calcPosition = function ($scope) {
+        return $scope.timerposition = $scope.Tcurrent / $scope.Ttotal;
+    };
+
+    $scope.timerrunning = false;
+    $scope.startTimer = function () {
+        $scope.timerrunning = true;
+    };
+    $scope.stopTimer = function () {
+        $scope.timerrunning = false;
+    };
+
+})
 
 .controller('SettingsCtrl', function ($scope, $ionicPlatform, $cordovaDevice, $cordovaEmailComposer, $cordovaToast) {
     $scope.timeupSettings = [
@@ -27,7 +46,6 @@ angular.module('threefourths.controllers', [])
             text: "Show status on lock screen",
             checked: true
         }];
-
     $ionicPlatform.ready(function () {
         //get device info with $cordovaDevice
         var device = $cordovaDevice.getDevice();
@@ -80,4 +98,4 @@ angular.module('threefourths.controllers', [])
     };
 
 
-});
+})

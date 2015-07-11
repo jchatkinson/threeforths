@@ -4,11 +4,10 @@
 } */
 
 .timer-ring {
-    /*Avoid setting the following properties that are used to calculate the progress arc position: stroke-width  stroke-dasharray stroke-dashoffset */
-    
     margin: auto;
     transition: stroke-dashoffset 0.1s linear;
     stroke: rgba(16, 179, 217, 0.84);
     stroke-linecap: "square";
     stroke-width: "20";
+    /*Avoid setting the following properties that are used to calculate the progress arc position: stroke-width  stroke-dasharray stroke-dashoffset */
 }

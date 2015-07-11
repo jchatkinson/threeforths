@@ -1,9 +1,22 @@
 <ion-view view-title="Three Fourths">
     <ion-content class="padding">
-        <p>Here's some text for shits and giggles</p>
-        <!--
-        <progress-arc size="300" class="timer-ring" complete="1.0" counter-clockwise="false">
+        <p ng-show="timerrunning">The timer is running</p>
+        <p ng-hide="timerrunning">The timer is stopped</p>
+        <p><code>timerposition</code> = {{timerposition}}</p>
+
+        <progress-arc size={{timersize}} ng-model="timerposition" counter-clockwise="false">
         </progress-arc>
--->
+
+
+        <div class="item item-input">
+            <span class="input-label">Ttotal</span>
+            <input type="number" name="Ttotal" ng-model="Ttotal" min="0" max="1440" placeholder="Ttotal" ng-change="calcPosition()">
+        </div>
+        <div class="item item-input">
+            <span class="input-label">Tcurrent</span>
+            <input type="number" name="Tcurrent" ng-model="Tcurrent" min="0" max="1440" placeholder="Tcurrent" ng-change="calcPosition()">
+        </div>
+        <button class="button button-outline button-positive" ng-click="startTimer()" ng-disabled="timerrunning">Start Timers</button>
+        <button class="button button-outline button-assertive" ng-click="stopTimer()" ng-disabled="!timerrunning">Stop Timers</button>
     </ion-content>
 </ion-view>
