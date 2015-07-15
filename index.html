@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Use the ThreeFourths app to increase your productivity and get'er done">
-    <meta name="author" content="Jeremy Atkinson">
+    <meta name="author" content="Three Fourths">
 
     <title>ThreeFourths App</title>
 
@@ -53,10 +53,10 @@
                         <a href="#page-top"></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#webapp">Web</a>
+                        <a class="page-scroll" href="#about">About</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#download">Mobile</a>
+                        <a class="page-scroll" href="#download">Mobile App</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#contact">Contact</a>
@@ -70,31 +70,56 @@
 
     <!-- Intro Header -->
     <header class="intro">
-        <div class="intro-body">
+        <div class="intro-body" ng-app="timerApp" ng-controller="timerCtrl">
+            <button class="btn btn-default" ng-click="switchtoapp()">Show App</button>
             <div class="container">
-                <div class="row">
+                <!-- Text -->
+                <div class="row" ng-hide="showapp">
                     <div class="col-md-8 col-md-offset-2">
                         <h1 class="brand-heading">Grey</h1>
                         <p class="intro-text">Just like your future,
                             <br>If you don't get working.</p>
-                        <a href="#webapp" class="btn btn-circle page-scroll">
+                        <a href="#about" class="btn btn-circle page-scroll">
                             <i class="fa fa-angle-double-down animated"></i>
                         </a>
                     </div>
+                </div>
+                <!-- App -->
+                <div class="row" ng-show="showapp">
+                    <div id="timer-view" class="col-xs-12 col-md-8">
+                        <div id="timer-remaining">
+                            {{ts.remainingtime|formatTimer}}
+                        </div>
+                        <div id="timer-cycle">
+                            {{ts.cycle | uppercase}}
+                        </div>
+                        <progress-arc size="300" stroke="rgba(255, 255, 255, 0.94)" stroke-width="20" complete="ts.graphprogress" counter-clockwise=true></progress-arc>
+                    </div>
+                    <div id="timer-controls" class="col-xs-6 col-md-4">
+                        <label>Work Time:</label>
+                        <input type="number" ng-model="ts.worktime" min="0" ng-change="ts.changeInput()">
+                        <label>Break Time</label>
+                        <input type="number" ng-model="ts.breaktime" min="0" ng-change="ts.changeInput()">
+                        <br>
+                        <button ng-click="ts.pauseResumeToggle()" class="btn btn-default">{{ts.buttonText}}</button>
+                        <button ng-click="ts.resetTimer()" class="btn btn-default">Reset</button>
+                        <button ng-click="ts.switchCycle()" class="btn btn-default">End {{ts.cycle}} Cycle</button>
+                    </div>
+
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Web App Section -->
-    <section id="webapp" class="container content-section text-center" ng-app="timerApp">
+    <!-- About ThreeFourths-->
+    <section id="about" class="container content-section text-center">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2" ng-controller="introCtrl">
+            <div class="col-lg-8 col-lg-offset-2">
                 <h2>Staying Focused is Hard</h2>
                 <p>Let's face it - its really easy to procrastinate while working at a computer.</p>
                 <p>Three Fourths is a free app designed to increase your productivity while working at a computer. It's simple: <b>Just follow the timer</b>.</p>
                 <p> Focus intently on your work for three-fourths of an hour, then reward yourself with fifteen minutes of youtime. Aim to spend <a href="http://www.ncbi.nlm.nih.gov/pubmed/25137367"><i>atleast five minutes </i><sup><i class="fa fa-external-link"></i></a>of that time out of your chair.</p>
-                <a href="#" class="btn btn-default btn-lg"><i class="fa fa-play-circle fa-fw"></i> <span class="network-name">Yeah, Whatever</span></a>
+                <a href="#page-top" class="btn btn-default btn-lg"><i class="fa fa-play-circle fa-fw"></i> <span class="network-name">Let's Do it</span></a>
             </div>
         </div>
     </section>
@@ -146,7 +171,7 @@
     <!-- Footer -->
     <footer>
         <div class="container text-center">
-            <p>Copyright &copy; Jeremy Atkinson 2015</p>
+            <p>Copyright &copy; Three Fourths 2015</p>
         </div>
     </footer>
 
