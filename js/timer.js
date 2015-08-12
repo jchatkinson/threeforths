@@ -79,7 +79,7 @@ app.service('timerService', function ($timeout) {
 app.controller('timerCtrl', function ($scope, timerService) {
     //import the timer service
     $scope.ts = timerService;
-    $scope.showapp = false;
+    $scope.showapp = true;
     $scope.switchtoapp = function () {
         $scope.showapp = !$scope.showapp;
     }

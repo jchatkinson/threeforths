@@ -71,7 +71,11 @@
     <!-- Intro Header -->
     <header class="intro">
         <div class="intro-body" ng-app="timerApp" ng-controller="timerCtrl">
-            <button class="btn btn-default" ng-click="switchtoapp()">Show App</button>
+
+            <!-- app button -->
+            <button id="showapp" class="btn-circle" ng-click="switchtoapp()"><i class="fa fa-play-circle-o"></i>
+            </button>
+
             <div class="container">
                 <!-- Text -->
                 <div class="row" ng-hide="showapp">
@@ -87,19 +91,21 @@
                 <!-- App -->
                 <div class="row" ng-show="showapp">
                     <div id="timer-view" class="col-xs-12 col-md-8">
-                        <div id="timer-remaining">
+                        <progress-arc size="300" stroke="rgba(255, 255, 255, 0.94)" stroke-width="20" complete="ts.graphprogress" counter-clockwise=true></progress-arc>
+                        <div id="timer-remaining" class="timer-text">
                             {{ts.remainingtime|formatTimer}}
                         </div>
-                        <div id="timer-cycle">
+                        <div id="timer-cycle" class="timer-text">
                             {{ts.cycle | uppercase}}
                         </div>
-                        <progress-arc size="300" stroke="rgba(255, 255, 255, 0.94)" stroke-width="20" complete="ts.graphprogress" counter-clockwise=true></progress-arc>
+
+
                     </div>
                     <div id="timer-controls" class="col-xs-6 col-md-4">
                         <label>Work Time:</label>
-                        <input type="number" ng-model="ts.worktime" min="0" ng-change="ts.changeInput()">
-                        <label>Break Time</label>
-                        <input type="number" ng-model="ts.breaktime" min="0" ng-change="ts.changeInput()">
+                        <input type="number" class="timer-input" ng-model="ts.worktime" min="0" ng-change="ts.changeInput()">
+                        <label>Break Time:</label>
+                        <input type="number" class="timer-input" ng-model="ts.breaktime" min="0" ng-change="ts.changeInput()">
                         <br>
                         <button ng-click="ts.pauseResumeToggle()" class="btn btn-default">{{ts.buttonText}}</button>
                         <button ng-click="ts.resetTimer()" class="btn btn-default">Reset</button>
