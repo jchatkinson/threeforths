@@ -73,37 +73,40 @@
         <div class="intro-body" ng-app="timerApp" ng-controller="timerCtrl">
 
             <!-- app button -->
-            <button id="showapp" class="btn-circle" ng-click="switchtoapp()"><i class="fa fa-play-circle-o"></i>
+            <!--
+            <button id="showapp" class="btn btn-circle page-scroll" ng-click="switchtoapp()"><i class="fa fa-play"></i>
             </button>
-
+-->
             <div class="container">
                 <!-- Text -->
-                <div class="row" ng-hide="showapp">
+                <div class="row" ng-show="showapp">
                     <div class="col-md-8 col-md-offset-2">
                         <h1 class="brand-heading">Grey</h1>
                         <p class="intro-text">Just like your future,
                             <br>If you don't get working.</p>
-                        <a href="#about" class="btn btn-circle page-scroll">
-                            <i class="fa fa-angle-double-down animated"></i>
+                        <a href="#" class="btn btn-large" ng-click="switchtoapp()">
+                            <i class="fa fa-4x fa-play animated"></i>
                         </a>
                     </div>
                 </div>
+
                 <!-- App -->
-                <div class="row" ng-show="showapp">
-                    <div id="timer-view" class="col-xs-12 col-md-8">
-                        <progress-arc size="300" stroke="rgba(255, 255, 255, 0.94)" stroke-width="20" complete="ts.graphprogress" counter-clockwise=true></progress-arc>
-                        <div id="timer-remaining" class="timer-text">
+                <div class="row" ng-hide="showapp">
+                    <div id="timer-view" class="col-md-12">
+                        <progress-arc size="300" stroke="rgb(45, 188, 49)" stroke-width="20" complete="ts.graphprogress" counter-clockwise=true></progress-arc>
+                        <div id="timer-remaining" class="text-center timer-text">
                             {{ts.remainingtime|formatTimer}}
                         </div>
-                        <div id="timer-cycle" class="timer-text">
+                        <div id="timer-cycle" class="text-center timer-text">
                             {{ts.cycle | uppercase}}
                         </div>
-
-
                     </div>
+
+
                     <div id="timer-controls" class="col-xs-6 col-md-4">
                         <label>Work Time:</label>
                         <input type="number" class="timer-input" ng-model="ts.worktime" min="0" ng-change="ts.changeInput()">
+
                         <label>Break Time:</label>
                         <input type="number" class="timer-input" ng-model="ts.breaktime" min="0" ng-change="ts.changeInput()">
                         <br>
@@ -135,8 +138,8 @@
         <div class="download-section">
             <div class="container">
                 <div class="col-lg-8 col-lg-offset-2">
-                    <h2>Also Available on Mobile</h2>
-                    <p>Completely Free. No Ads. No Signups.</p>
+                    <h2>Mobile App Coming Soon</h2>
+                    <p>On these mobile platforms:</p>
                     <ul class="list-inline banner-social-buttons">
                         <li><a href="#" class="btn btn-default btn-lg"><i class="fa fa-android fa-fw"></i> <span class="network-name">Android</span></a>
                         </li>
