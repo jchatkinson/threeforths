@@ -374,6 +374,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .timer .timer-progress {
