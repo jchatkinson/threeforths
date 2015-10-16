@@ -65,13 +65,7 @@
     <!-- Intro Header -->
     <header class="intro">
         <div class="intro-body" ng-app="timerApp" ng-controller="timerCtrl">
-
-            <!-- app button -->
-            <!--
-            <button id="showapp" class="btn btn-circle page-scroll" ng-click="switchtoapp()"><i class="fa fa-play"></i>
-            </button>
--->
-            <div class="container">
+            <div>
                 <!-- Text -->
                 <div class="row" ng-show="showapp">
                     <div class="col-md-8 col-md-offset-2">
@@ -85,30 +79,30 @@
                 </div>
 
                 <!-- App -->
-                <div class="row" ng-hide="showapp">
-                    <div id="timer-view" class="col-md-12">
-                        <progress-arc size="300" stroke="rgb(45, 188, 49)" stroke-width="20" complete="ts.graphprogress" counter-clockwise=true></progress-arc>
-                        <div id="timer-remaining" class="text-center timer-text">
-                            {{ts.remainingtime|formatTimer}}
+                <div ng-hide="showapp" class="timer">
+                    <div class="timer-progress">
+                        <div class="timer-text">
+                            <p id="timer-remaining">{{ts.remainingtime | formatTimer}}</p>
+                            <p id="timer-cycle">{{ts.cycle | uppercase}}</p>
                         </div>
-                        <div id="timer-cycle" class="text-center timer-text">
-                            {{ts.cycle | uppercase}}
+                        <progress-arc size="300" stroke="#42dca3" stroke-width="20" complete="ts.graphprogress" counter-clockwise=true></progress-arc>
+                        <div class="timer-controls">
+
+                            <button ng-click="ts.pauseResumeToggle()" class="btn btn-default no-border" title="{{ts.buttonText}}"><i class="fa fa-3x {{ts.buttonicon}} animated"></i></button>
+                            <button ng-click="ts.switchCycle()" class="btn btn-default no-border" title="Go to next cycle"><i class="fa fa-3x fa-fast-forward animated"></i></button>                       
+                            <button ng-click="ts.resetTimer()" class="btn btn-default no-border" title="Reset"><i class="fa fa-3x fa-power-off animated"></i></button>
+                        </div>
+                        <div class="timer-input">
+                            <div class="input">
+                                <label>Work Time:
+                                <input type="number" ng-model="ts.worktime" min="0" ng-change="ts.changeInput()"> min</label>
+                            </div>
+                            <div class="input">
+                                <label>Break Time:
+                                <input type="number" ng-model="ts.breaktime" min="0" ng-change="ts.changeInput()"> min</label>
+                            </div>
                         </div>
                     </div>
-
-
-                    <div id="timer-controls" class="col-xs-6 col-md-4">
-                        <label>Work Time:</label>
-                        <input type="number" class="timer-input" ng-model="ts.worktime" min="0" ng-change="ts.changeInput()">
-
-                        <label>Break Time:</label>
-                        <input type="number" class="timer-input" ng-model="ts.breaktime" min="0" ng-change="ts.changeInput()">
-                        <br>
-                        <button ng-click="ts.pauseResumeToggle()" class="btn btn-default">{{ts.buttonText}}</button>
-                        <button ng-click="ts.resetTimer()" class="btn btn-default">Reset</button>
-                        <button ng-click="ts.switchCycle()" class="btn btn-default">End {{ts.cycle}} Cycle</button>
-                    </div>
-
                 </div>
             </div>
         </div>
@@ -120,10 +114,10 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
                 <h2>Staying Focused is Hard</h2>
-                <p>I find that I sometimes get distracted when sitting at a computer. 
+                <p>Sometimes I just can't stay focussed when sitting at a computer. 
                 It's very easy to open a new tab and head over to reddit or imgur. 
-                Before long, a bunch of time is lost - time that would have been better spent on work or projects.
-                I made this little app to increase my productivity while working at a computer. You can too! It's simple:</p>  
+                Before long, a bunch of time is lost - time that would have been better spent on work or projects.</p>
+                <p>I made this little app to increase my productivity while working at a computer. You can too! It's simple:</p>  
                 <p><i>Just follow the timer</i>.</p>
                 <p>Focus intently on your work for three-fourths of an hour, then reward yourself with fifteen minutes of downtime. 
                 Aim to spend <a href="http://www.ncbi.nlm.nih.gov/pubmed/25137367"><i>atleast five minutes</i></a> of that time 

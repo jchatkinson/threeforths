@@ -368,31 +368,55 @@ body {
     right: 20px;
 }
 
-.timer-input {
-    background-color: transparent;
-    border: 0px;
-    outline: none;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
-    /*width: 5px;*/
-    color: white;
-    cursor: default;
+
+.timer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.timer-text {
+.timer .timer-progress {
+    position: relative;
+}
+.timer .timer-progress .timer-text {
+    width: 100%; height: 128px;
+    overflow: auto;
+    position: absolute;
+    top: 86px; left: 0; bottom: 0; right: 0;
+}
+.timer .timer-progress .timer-text p {
     margin-bottom: 0;
     text-transform: uppercase;
-    font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 40px;
+    color: #42dca3;
 }
 
-#timer-view {
-    position: relative;
-    width 300px;
-    height 300px;
+.timer .timer-controls {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-around;
+}
+.timer .timer-input {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    min-height: 64px;
+    font-size: 20px;
 }
 
+.timer .timer-input input[type="number"] { 
+    max-width:50px;
+    background-color: transparent;
+    border: 0px;
+    cursor: default;
+    font-size: 20px;
+}
+
+.timer .timer-controls .no-border {
+    border: none;
+}
 .cycle-text {
-    position: relative;
+    /*position: relative;*/
 }
